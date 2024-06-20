@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- wyświetlenie listy -->
+    {{fruits}}
+
+
+    <!-- Przeliterownie się po liście -->
+    <ul>
+    {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+    {% endfor %}
+    </ul>
+
+    {# {% nie_istnieje_sobie %} mój komentarz jednolinijkowy #}
+
+    {% comment %}
+    To jest mój komentarz wielolinijkowy
+    {% nie_istnieje_sobie %}
+    {% endcomment %}
+
+
+    <!-- Filtry -->
+    <div>
+        {{fruits|length}}
+    </div>
+
+    <div>
+        {{ fruits|upper }}
+    </div>
+
+    <div>
+        {{ fruits|join:", " }}
+    </div>
+
+    <div>
+        {{fruits|length|add:2}}
+    </div>
+</body>
+</html>
