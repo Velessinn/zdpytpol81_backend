@@ -46,13 +46,20 @@ def name_view2(request, name):
 
 def is_it_new_year(request):
     today = datetime.date.today()
+
+    is_new_year = False
     if today.month == 1 and today.day == 1:
-        msg = "Tak"
-    else:
-        msg = "Nie"
+        is_new_year = True
+    #
+    # if today.month == 1 and today.day == 1:
+    #     msg = "Tak"
+    #     color = "green"
+    # else:
+    #     msg = "Nie"
+    #     color = "red"
 
     return render(
         request,
         'isitnewyear.html',
-    {'msg': msg}
+        {'is_new_year': is_new_year}
     )
