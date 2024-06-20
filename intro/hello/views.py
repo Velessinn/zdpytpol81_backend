@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+import datetime
 
 # Create your views here.
 def hello_view(request):
@@ -41,4 +42,17 @@ def name_view2(request, name):
         request,
         'hello2.html',
         {"x": name}
+    )
+
+def is_it_new_year(request):
+    today = datetime.date.today()
+    if today.month == 1 and today.day == 1:
+        msg = "Tak"
+    else:
+        msg = "Nie"
+
+    return render(
+        request,
+        'isitnewyear.html',
+    {'msg': msg}
     )
