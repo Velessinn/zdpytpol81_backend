@@ -1,0 +1,1 @@
+alert("Hi, hello on this IsItNewYear page!")
