@@ -9,12 +9,7 @@
     {{fruits}}
 
 
-    <!-- Przeliterownie się po liście -->
-    <ul>
-    {% for fruit in fruits %}
-        <li>{{fruit}}</li>
-    {% endfor %}
-    </ul>
+
 
     {# {% nie_istnieje_sobie %} mój komentarz jednolinijkowy #}
 
@@ -40,5 +35,46 @@
     <div>
         {{fruits|length|add:2}}
     </div>
+
+
+    <!-- Po kluczu (dict lookup)  -->
+    {{person.name}} {{person.surname}} {{person.age}}
+
+
+    <!-- Przeliterownie się po słowniku -->
+    <p>Klucze</p>
+    <p>{% for key in person %}
+        {{key}}
+        {% endfor %}</p>
+
+    <p>Wartości</p>
+    <p>{% for value in person.values %}
+        {{ value }}
+        {% endfor %}</p>
+
+    <p>Klucze i wartości</p>
+    <p>{% for idx, value in person.items %}
+        <li>{{ idx }} {{ value }}</li>
+        {% endfor %}</p>
+
+
+    <!-- Przeliterownie się po liście -->
+    <ul>
+    {% for fruit in fruits %}
+        {% if forloop.first %}
+            {{ forloop }}
+        Zawartość przy pierwszym obrocie pętli
+        {% endif %}
+        <li> {{ forloop.counter0 }} {{fruit}}</li>
+    {% endfor %}
+    </ul>
+
+
+    <!-- Praca z obiekatami -->
+    <p>{{ cow }}</p>
+    <p>{{ cow.name }}</p>
+    <p>{{ cow.speak }}</p>
+
+
 </body>
 </html>

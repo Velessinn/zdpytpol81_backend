@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 import datetime
 
+from hello.utils import Cow
+
 # Create your views here.
 def hello_view(request):
     return HttpResponse("Witaj świecie!")
@@ -73,9 +75,22 @@ def collection_view(request):
         'mandarynki'
     ]
 
+    person = {
+        "name": "Jan",
+        "surname": "Kowalski",
+        "age": 25
+    }
+
+
+    cow = Cow("Mućka", 3)
+
     return render(
         request,
         'collection.html',
-        {'fruits': fruits}
+        {'fruits': fruits,
+         'person': person,
+         'cow': cow
+         }
+
 
     )
