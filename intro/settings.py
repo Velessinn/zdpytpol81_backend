@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # local
     'hello.apps.HelloConfig',
     'inheritance.apps.InheritanceConfig',
+    'link_app.apps.LinkAppConfig',
 ]
 
 MIDDLEWARE = [
