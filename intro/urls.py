@@ -22,6 +22,7 @@ urlpatterns = [
     path('hello/', include('hello.urls')),
     path('inheritance/', include('inheritance.urls')),
     path('link/', include('link_app.urls')),
-    path('form/', include('form_app.urls'))
+    path('form/', include('form_app.urls')),
+    path('crud/', include('crud_app.urls')),
     #path('byk/', byk)
 ]
