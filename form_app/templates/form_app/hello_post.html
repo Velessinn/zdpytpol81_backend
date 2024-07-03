@@ -8,9 +8,9 @@
 {% if name %}
     Witaj {{ name }} !
 {% endif %}
-    <form>
-    {# <form action="{% url 'form_app:show' %}"> #}
-        <input type="text" name="name">
+    <form method="POST">
+         {% csrf_token %}
+        <input type="text" name="first_name">
         <input type="submit" value="Przywitaj mnie">
     </form>
 </body>
