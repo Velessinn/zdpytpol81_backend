@@ -24,5 +24,6 @@ urlpatterns = [
     path('link/', include('link_app.urls')),
     path('form/', include('form_app.urls')),
     path('crud/', include('crud_app.urls')),
+    path('orm/', include('orm_app.urls')),
     #path('byk/', byk)
 ]
