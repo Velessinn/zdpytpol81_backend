@@ -21,4 +21,10 @@ urlpatterns = [
     path('tasks/update/<int:task_id>',
          views.task_update_view,
          name='task_update_view'),
+
+
+    # D z CRUD
+    path('tasks/delete/<int:task_id>/',
+         views.task_delete_view,
+         name='task_delete_view'),
     ]
