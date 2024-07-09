@@ -12,7 +12,7 @@ def task_create_view(request):
     if request.method == "GET":
         return render(
             request,
-            'crud_app2/task_form.html'
+            'crud_app/task_form.html'
         )
 
     elif request.method == "POST":
@@ -22,7 +22,7 @@ def task_create_view(request):
         if task:
             TASKS.append(task)
 
-        return redirect('crud_app2:tasks_views')
+        return redirect('crud_app:tasks_views')
 
 
 # R z CRUD (listy)
@@ -32,7 +32,7 @@ def task_list_view(request):
 
     return render(
         request,
-        'crud_app2/tasks.html',
+        'crud_app/tasks.html',
         {'tasks': tasks}
     )
 
@@ -43,7 +43,7 @@ def task_detail_view(request, task_id):
 
         return render(
             request,
-            'crud_app2/task_detail.html',
+            'crud_app/task_detail.html',
             {"task_id": task_id, "task": task}
         )
 
@@ -59,7 +59,7 @@ def task_update_view(request, task_id):
     if request.method == "GET":
         return render(
             request,
-            'crud_app2/task_update.html',
+            'crud_app/task_update.html',
             {"task_id": task_id, 'task': task}
         )
     elif request.method == "POST":
@@ -69,7 +69,7 @@ def task_update_view(request, task_id):
         if task_new_name:
             TASKS[task_id-1] = task_new_name
 
-        return redirect('crud_app2:tasks_views')
+        return redirect('crud_app:tasks_views')
 
 def task_delete_view(request, task_id):
     if not 0 < task_id <= len(TASKS):
@@ -80,7 +80,7 @@ def task_delete_view(request, task_id):
     if request.method == "GET":
         return render(
             request,
-            'crud_app2/task_delete.html',
+            'crud_app/task_delete.html',
             {"task_id": task_id, 'task': task}
         )
     elif request.method == "POST":
@@ -89,4 +89,4 @@ def task_delete_view(request, task_id):
         if 'yes' in data:
             TASKS.pop(task_id-1)
 
-        return redirect('crud_app2:tasks_views')
+        return redirect('crud_app:tasks_views')

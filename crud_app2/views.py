@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, Http404
 
 # Create your views here
+from crud_app2.models import Task
 
 
 
@@ -18,7 +19,8 @@ def task_create_view(request):
         if task:
             Task.objects.create(name=task)
 
-    return redirect('crud_app2:tasks_views')
+        return redirect('crud_app2:task_list_view')
+
 
 
 # R z CRUD (listy)
@@ -48,7 +50,6 @@ def task_detail_view(request, task_id):
 
     else:
         raise Http404()
-
 # U z CRUD
 def task_update_view(request, task_id):
     tasks = Task.objects.filter(id=task_id)
@@ -72,7 +73,7 @@ def task_update_view(request, task_id):
             task.name = task_new_name
             task.save()
 
-        return redirect('crud_app2:tasks_views')
+        return redirect('crud_app2:task_list_view')
 
 #D z CRUD
 def task_delete_view(request, task_id):
@@ -96,4 +97,4 @@ def task_delete_view(request, task_id):
         if 'yes' in data:
             task.delete()
 
-        return redirect('crud_app2:tasks_views')
+        return redirect('crud_app2:task_list_view')
